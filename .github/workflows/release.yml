@@ -18,6 +18,13 @@ jobs:
           bun-version: latest
       - run: bun install
       - run: bun run build:bin
+      - name: Package binaries into archives
+        # Smaller downloads: .zip for Windows, .tar.gz for Linux/macOS.
+        # Raw binaries are kept too, so users can pick.
+        run: |
+          cd dist-bin
+          for f in chartbrew-mcp-windows-*; do zip "${f}.zip" "$f"; done
+          for f in chartbrew-mcp-linux-* chartbrew-mcp-darwin-*; do tar -czf "${f}.tar.gz" "$f"; done
       - uses: actions/upload-artifact@v4
         with:
           name: binaries

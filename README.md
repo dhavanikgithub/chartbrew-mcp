@@ -121,8 +121,10 @@ Prefer not to install Node.js? Download a prebuilt binary from the [Releases](ht
 
 **Setup:**
 
-- **Windows:** run the `.exe` directly.
-- **macOS / Linux:** make it executable once: `chmod +x chartbrew-mcp-darwin-arm64`
+Releases include both raw binaries and compressed archives (`.zip` for Windows, `.tar.gz` for Linux/macOS) — grab the archive for a smaller download, then extract it.
+
+- **Windows:** download `chartbrew-mcp-windows-x64.zip` (or `arm64`), extract, run the `.exe`.
+- **macOS / Linux:** download e.g. `chartbrew-mcp-darwin-arm64.tar.gz`, extract, then make it executable once: `chmod +x chartbrew-mcp-darwin-arm64`
 - **macOS Gatekeeper:** if macOS blocks the unsigned binary, remove the quarantine attribute: `xattr -d com.apple.quarantine chartbrew-mcp-darwin-arm64`
 
 You do **not** need a `.env` file — set configuration through your MCP client's `env` block (or the OS environment). Example for Claude Desktop / Claude Code (`.mcp.json` or `claude_desktop_config.json`):
