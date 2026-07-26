@@ -33,6 +33,25 @@ TypeScript MCP server built on the official MCP SDK for documented Chartbrew API
 </a>
 </p>
 
+## Showcase
+
+<p align="center">
+  <em>Chartbrew MCP in action — managing analytics resources through natural language.</em>
+</p>
+
+<table>
+  <tr>
+    <td align="center"><img src="assets/dark/Chartbrew-MCP-001.png" alt="Chartbrew MCP screenshot 1" width="400"></td>
+    <td align="center"><img src="assets/dark/Chartbrew-MCP-002.png" alt="Chartbrew MCP screenshot 2" width="400"></td>
+    <td align="center"><img src="assets/dark/Chartbrew-MCP-003.png" alt="Chartbrew MCP screenshot 3" width="400"></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/dark/Chartbrew-MCP-004.png" alt="Chartbrew MCP screenshot 4" width="400"></td>
+    <td align="center"><img src="assets/dark/Chartbrew-MCP-005.png" alt="Chartbrew MCP screenshot 5" width="400"></td>
+    <td align="center"><img src="assets/dark/Chartbrew-MCP-006.png" alt="Chartbrew MCP screenshot 6" width="400"></td>
+  </tr>
+</table>
+
 ## Prerequisites
 
 - **Node.js** and **npm** installed (used to install dependencies and build the server).
