@@ -52,3 +52,5 @@ jobs:
         with:
           files: dist-bin/*
           generate_release_notes: true
+          # Tag with -beta / -rc -> GitHub marks it a pre-release (not "latest").
+          prerelease: ${{ contains(github.ref_name, 'beta') || contains(github.ref_name, 'rc') }}
