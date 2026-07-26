@@ -1,5 +1,6 @@
 # build output & deps
 dist
+dist-bin
 node_modules
 
 # environment / secrets

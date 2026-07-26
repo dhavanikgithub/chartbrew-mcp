@@ -109,6 +109,50 @@ npm start
 
 The server uses stdio transport and is intended to be launched by an MCP client host.
 
+## Standalone binary (no Node.js required)
+
+Prefer not to install Node.js? Download a prebuilt binary from the [Releases](https://github.com/dhavanikgithub/chartbrew-mcp/releases) page and run it directly. Binaries are provided for:
+
+| OS      | x64 (Intel/AMD)               | arm64 (Apple Silicon / ARM)   |
+| ------- | ----------------------------- | ----------------------------- |
+| Windows | `chartbrew-mcp-windows-x64.exe` | `chartbrew-mcp-windows-arm64.exe` |
+| Linux   | `chartbrew-mcp-linux-x64`     | `chartbrew-mcp-linux-arm64`   |
+| macOS   | `chartbrew-mcp-darwin-x64`    | `chartbrew-mcp-darwin-arm64`  |
+
+**Setup:**
+
+- **Windows:** run the `.exe` directly.
+- **macOS / Linux:** make it executable once: `chmod +x chartbrew-mcp-darwin-arm64`
+- **macOS Gatekeeper:** if macOS blocks the unsigned binary, remove the quarantine attribute: `xattr -d com.apple.quarantine chartbrew-mcp-darwin-arm64`
+
+You do **not** need a `.env` file — set configuration through your MCP client's `env` block (or the OS environment). Example for Claude Desktop / Claude Code (`.mcp.json` or `claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "chartbrew": {
+      "command": "/absolute/path/to/chartbrew-mcp-darwin-arm64",
+      "env": {
+        "CHARTBREW_API_KEY": "your-api-key",
+        "CHARTBREW_API_BASE_URL": "https://api.chartbrew.com",
+        "CHARTBREW_TOOL_MODE": "restricted"
+      }
+    }
+  }
+}
+```
+
+### Build the binaries yourself
+
+From a checkout, install [Bun](https://bun.sh) (the compiler), then:
+
+```bash
+npm install
+npm run build:bin   # writes binaries to dist-bin/
+```
+
+Full setup, Bun install commands, and the Windows cross-compile caveat are in [CONTRIBUTING.md](./CONTRIBUTING.md#building-standalone-binaries).
+
 ## Add to an MCP client
 
 After `npm install` and `npm run build`, register the server with your MCP host. The server runs over stdio via `node dist/index.js`. Replace `<ABSOLUTE_PATH_TO_MCP_DIR>` with the absolute path to this `mcp` directory and set your API key.
